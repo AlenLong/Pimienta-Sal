@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+  <%- include('./partials/head') %> 
+  <body>
+    
+
+    <%- include('./partials/nav') %>
+    
+    <%- include('./partials/header') %>
+    
+
+    <!-- Page content -->
+    <div class="ps-content">
+
+      <!-- Menu Section -->
+      <div class="ps-row ps-padding-64" id="menu">
+        <div class="ps-col l6 ps-padding-large">
+          <h1 class="ps-center"><%= plato.titulo %> </h1>
+          <br />
+          
+          <!-- estructura en if ternario -->
+          <h4><%= plato.descripcionDetallada === 'Plato tipico' ? plato.descripcion : plato.descripcionDetallada  %> </h4>
+          
+          <!-- <h4>  -->
+            
+            <!-- estructura de if en ejs -->
+              <% if (plato.descripcionDetallada === 'Plato tipico' ) { %>
+                <%= plato.descripcion %> 
+              <% } else{ %>
+                <%= plato.descripcionDetallada %>
+              <% } %> 
+
+          <!-- </h4> -->
+
+          <p class="ps-text-grey">
+            U$S <%= plato.precio %>
+          </p>
+        </div>
+
+        <div class="ps-col l6 ps-padding-large ps-img-menu">
+          <img
+            src="/images/<%= plato.imagen %> "
+            class="ps-round ps-image ps-opacity-min"
+            alt="Menu"
+          />
+        </div>
+      </div>
+
+
+      <%- include('./partials/footer') %>
+
+    </div>
+  </body>
+</html>
